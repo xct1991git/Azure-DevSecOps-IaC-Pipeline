@@ -23,7 +23,7 @@ resource "azurerm_resource_group" "sec_rg" {
   }
 }
 
-# Storage Account con configuraciones de seguridad auditables
+# Storage Account endurecida siguiendo estándares CIS / ISO 27001
 resource "azurerm_storage_account" "sec_storage" {
   name                     = "stsecopsdemoprod001"
   resource_group_name      = azurerm_resource_group.sec_rg.name
@@ -31,13 +31,31 @@ resource "azurerm_storage_account" "sec_storage" {
   account_tier             = "Standard"
   account_replication_type = "GRS"
 
-  # Controles de seguridad requeridos por estándares CIS / ISO 27001
+  # Cifrado y transporte seguro
   enable_https_traffic_only       = true
   min_tls_version                 = "TLS1_2"
   allow_nested_items_to_be_public = false
+  infrastructure_encryption_enabled = true
+
+  # Resiliencia de datos y retención de versiones
+  blob_properties {
+    versioning_enabled = true
+    delete_retention_policy {
+      days = 7
+    }
+    container_delete_retention_policy {
+      days = 7
+    }
+  }
+
+  # Control de acceso de red por defecto
+  network_rules {
+    default_action = "Deny"
+    bypass         = ["AzureServices"]
+  }
 
   tags = {
     Compliance = "CIS-Benchmark"
-    ManagedBy  = "Terraform"
+    Security   = "Hardened"
   }
 }
