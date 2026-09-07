@@ -1,4 +1,4 @@
-# Pipeline Automatizado de DevSecOps para IaC en Azure (Coste: 0€)
+# Pipeline Automatizado de DevSecOps para IaC en Azure
 
 [![DevSecOps IaC Security Pipeline](https://github.com/xct1991git/azure-devsecops-iac-pipeline/actions/workflows/devsecops.yml/badge.svg)](https://github.com/xct1991git/azure-devsecops-iac-pipeline/actions/workflows/devsecops.yml)
 
