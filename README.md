@@ -6,9 +6,9 @@ Implementación de **Shift-Left Security** de nivel empresarial para Infraestruc
 
 ---
 
-## 🎯 Arquitectura y Objetivos de Seguridad
+## Arquitectura y Objetivos de Seguridad
 
-En la ingeniería cloud moderna, detectar vulnerabilidades *después* del despliegue resulta costoso y arriesgado. Este proyecto integra barreras de seguridad automáticas directamente en el ciclo de vida de Pull Requests y *pushes*:
+En la ingeniería cloud moderna, detectar vulnerabilidades *después* del despliegue resulta caro y arriesgado. Este proyecto integra barreras de seguridad automáticas directamente en el ciclo de vida de Pull Requests y *pushes*:
 
 1. **Defensa contra Fuga de Secretos:** Impide que credenciales en texto plano, tokens o claves API se suban al control de versiones.
 2. **Auditoría de Seguridad y Cumplimiento:** Analiza automáticamente las plantillas de Terraform contra los estándares CIS Microsoft Azure Foundations Benchmark e ISO 27001.
@@ -17,7 +17,7 @@ En la ingeniería cloud moderna, detectar vulnerabilidades *después* del despli
 
 ---
 
-## 🛠️ Stack Tecnológico y Herramientas
+## Stack Tecnológico y Herramientas
 
 | Componente | Herramienta / Tecnología | Propósito |
 | :--- | :--- | :--- |
@@ -30,7 +30,7 @@ En la ingeniería cloud moderna, detectar vulnerabilidades *después* del despli
 
 ---
 
-## 🔍 Fases de Seguridad del Pipeline
+## Fases de Seguridad del Pipeline
 
 El flujo de trabajo ejecuta tres tareas independientes y en paralelo ante cada `push` o `pull_request` a la rama `main`:
 
