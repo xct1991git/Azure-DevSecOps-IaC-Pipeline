@@ -1,0 +1,16 @@
+# Configuración de políticas de seguridad para IaC
+framework:
+  - terraform
+
+# Reportar hallazgos en formato CLI estructurado
+output: cli
+
+# Exclusiones justificadas para entorno de laboratorio / optimización de costes
+skip-check:
+  - CKV2_AZURE_1   # Customer Managed Keys (requiere Azure Key Vault de pago)
+  - CKV2_AZURE_33  # Private Endpoints (gestionados en módulo de red independiente)
+  - CKV2_AZURE_40  # Shared Access Key authorization
+  - CKV2_AZURE_41  # SAS expiration policy en nivel raíz
+  - CKV2_AZURE_59  # Redundancia estricta de acceso público gobernada por network_rules
+  - CKV_AZURE_33   # Logging del servicio Queue (no utilizado en este perfil)
+  - CKV_AZURE_109  # Network access rules default action redundant check
