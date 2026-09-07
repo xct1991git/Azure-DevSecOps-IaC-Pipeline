@@ -39,7 +39,7 @@ jobs:
         uses: bridgecrewio/checkov-action@master
         with:
           framework: terraform
-          output_format: cli
+          config_file: .checkov.yaml
           soft_fail: false
 
   terraform-lint:
